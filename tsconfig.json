@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "sourceMap": false,
+      "target": "es2015",
+      "outDir": "lib",
+      "declaration": true,
+      "declarationDir": "lib",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "removeComments": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": ".",
+      "paths": {
+        "abstraction": ["src/abstaction/index"],
+        "classification": ["src/classification/index"],
+        "decoration": ["src/decoration/index"],
+        "globalization": ["src/globalization/index"]
+      }
+    },
+    "include": ["src/index.ts"],
+    "exclude": []
+}

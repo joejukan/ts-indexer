@@ -1,0 +1,30 @@
+{
+  "name": "ts-indexer",
+  "version": "0.0.1",
+  "description": "Dev tool used to create typescript index files (index.ts)",
+  "main": "lib/index",
+  "types": "lib/index",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf lib/*",
+    "patch": "npm run build && npm version patch && npm publish",
+    "test": "jasmine-ts spec/**/*.spec.ts",
+    "watch": "node lib/index.js watch -v INFO test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:joejukan/ts-indexer.git"
+  },
+  "author": "Joseph Eniojukan <jeniojukan@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/joejukan/ts-indexer#readme",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "inquirer": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.6",
+    "@types/node": "^9.4.6",
+    "jasmine": "^3.0.0"
+  }
+}

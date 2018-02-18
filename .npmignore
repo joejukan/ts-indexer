@@ -1,0 +1,10 @@
+src/
+typings/
+node_modules/
+spec/
+scripts/
+test/
+webpack.config.js
+package-lock.json
+.gitignore
+npm-debug.log
