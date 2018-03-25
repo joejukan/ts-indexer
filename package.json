@@ -4,6 +4,9 @@
   "description": "Dev tool used to create typescript index files (index.ts)",
   "main": "lib/index",
   "types": "lib/index",
+  "bin":{
+    "index": "lib/index.js"
+  },
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf lib/*",

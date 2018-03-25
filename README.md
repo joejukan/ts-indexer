@@ -1,45 +1,109 @@
 # README #
 
-Dev tool used to create typescript index files (index.ts)
+Dev tool used to create typescript index files (index.ts)<br/><br/>
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The indexer tool creates typescript index files `index.ts` inside your source code folder and sub-folders.
+**Before indexing:**
+```
+src/
+    components/
+        login.component.ts
+        navigation.component.ts
+    services/
+        login.service.ts
+        user.service.ts
+```
+
+**After indexing:**
+```
+src/
+    components/
+        login.component.ts
+        navigation.component.ts
+        index.ts
+    services/
+        login.service.ts
+        user.service.ts
+        index.ts
+    index.ts
+```
+
+each index file will have lines that export the content of each typescript file in the folder:
+
+**src/components/index.ts**:
+```
+export * from ./login.component';
+export * from ./navigation.component';
+```
+
+**src/services/index.ts**:
+```
+export * from ./login.service';
+export * from ./user.service';
+```
+
+**src/index.ts**:
+```
+export * from ./components';
+export * from ./services';
+```
+<br/>
+This indexing scheme allows simplified imports based on directories:
+
+**with indexing:**
+
+`import {LoginService, UserService} from './services'`<br/><br/>
+
+
+**without indexing:**
+
+`import {LoginService} from './services/login.service'`
+
+`import {UserService} from './services/user.service'`<br/><br/>
+
+**Important Note**
+The indexer will not work on typescript files with default exports.
+Default exports may be supported in a future release.<br/><br/>
 
 ### Prerequisites
 
 **01)** [nodejs](https://nodejs.org/en/)<br/>
-**02)** [vscode](https://code.visualstudio.com/)<br/>
-**03)** [typescript](https://www.npmjs.com/package/typescript)<br/>
+**02)** [typescript](https://www.npmjs.com/package/typescript)<br/><br/>
 
 ### Installing
 
 Do the following steps to install **ts-indexer**:
 
-**01)** Install the **ts-indexer** npm package
+**01)** To install locally:
 ```
-npm install ts-indexer --save --registry https://registry.npmjs.com/
+npm install ts-indexer --save
 ```
 
-## Deployment
 
-**01)** To tranpile the source into javascript, execute the following:<br/>
-`npm run build`
-
-**02)** To deploy a patch on the [official nodejs registry](https://registry.npmjs.com/), execute the following:<br/>
-`npm run patch`
-
+**02)** To install globally:
+```
+npm install -g ts-indexer --save
+```
+<br/><br/>
 ## Built With
 
-**01)** [xxx](https://xxx/)<br/>
-
+**01)** [commander](https://www.npmjs.com/package/commander)<br/>
+**02)** [inquirer](https://www.npmjs.com/package/inquirer)<br/><br/>
 
 
 ## Authors
 
-**01)** **Joseph Eniojukan** - *Initial work* - [joejukan](https://github.com/joejukan)<br/>
+**01)** **Joseph Eniojukan** - *Initial work* - [joejukan](https://github.com/joejukan)<br/><br/>
 
 
+## Usage
+**01)** **Command Line with Indexer installed Globally**
+```
+index watch <path>
+```
+<br/><br/>
 ## License
 
 This project is licensed under the ISC License - see the **LICENSE.md** file for details

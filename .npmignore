@@ -7,4 +7,5 @@ test/
 webpack.config.js
 package-lock.json
 .gitignore
+.git/
 npm-debug.log
