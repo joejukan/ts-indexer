@@ -89,12 +89,24 @@ export class FolderWatch {
         let ext = extname(name);
         return /^\.ts$/i.test(ext);
     }
+    public static isDTS(name: string): boolean {
+        return /\.d\.ts$/i.test(name);
+    }
+    public static isSPEC(name: string): boolean {
+        return /\.spec\.ts$/i.test(name);
+    }
     public static validTS(name: string): boolean {
         let ext = extname(name);
         let base = basename(name, ext);
 
+        if(FolderWatch.isSPEC(name))
+            return false;
+
+        if(FolderWatch.isDTS(name))
+            return false;
+
         // make sure file is a TS file
-        if (/^\.ts$/i.test(ext)) {
+        if (FolderWatch.isTS(name)) {
 
             // make sure that file is not an index TS file
             if (!/^index$/i.test(base)) {
