@@ -1,6 +1,6 @@
 {
   "name": "ts-indexer",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Dev tool used to create typescript index files (index.ts)",
   "main": "lib/index",
   "types": "lib/index",
@@ -10,7 +10,6 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf lib/*",
-    "patch": "npm run build && npm version patch && npm publish",
     "test": "jasmine-ts spec/**/*.spec.ts",
     "watch": "node lib/index.js watch -v INFO test"
   },

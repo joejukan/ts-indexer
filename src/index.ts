@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {version, command, alias, description, action, parse} from "commander";
 import {readFileSync} from "fs";
 import {resolve} from "path";
