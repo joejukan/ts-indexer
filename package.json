@@ -4,14 +4,20 @@
   "description": "Dev tool used to create typescript index files (index.ts)",
   "main": "lib/index",
   "types": "lib/index",
-  "bin":{
+  "bin": {
     "index": "lib/index.js"
   },
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf lib/*",
     "test": "jasmine-ts spec/**/*.spec.ts",
-    "watch": "node lib/index.js watch -v INFO test"
+    "watch": "node lib/index.js watch -v INFO test",
+    "preversion": "npm run clean && npm test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags && npm publish --access public",
+    "patch": "npm version patch -m \"[PATCH] version (%s)\"",
+    "minor": "npm version minor -m \"[MINOR] version (%s)\"",
+    "major": "npm version major -m \"[MAJOR] version (%s)\""
   },
   "repository": {
     "type": "git",
@@ -21,12 +27,15 @@
   "license": "ISC",
   "homepage": "https://github.com/joejukan/ts-indexer#readme",
   "dependencies": {
-    "commander": "^2.14.1",
-    "inquirer": "^5.1.0"
+    "commander": "4.0.1",
+    "inquirer": "7.0.1"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.8.6",
-    "@types/node": "^9.4.6",
-    "jasmine": "^3.0.0"
+    "@types/jasmine": "3.5.0",
+    "@types/node": "13.1.1",
+    "jasmine": "3.5.0",
+    "jasmine-ts": "0.3.0",
+    "ts-node": "8.5.4",
+    "typescript": "3.7.4"
   }
 }

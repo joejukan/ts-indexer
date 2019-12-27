@@ -15,8 +15,7 @@ export class FolderWatch {
     public static watch(folder: string, cmd: Command) {
         baseFolder = folder;
         configurations.verbose = cmd.verbose || 'OFF';
-            
-
+        
         // first scan root directory
         FolderWatch.scan(folder, true);
 
@@ -87,13 +86,13 @@ export class FolderWatch {
     }
     public static isTS(name: string): boolean {
         let ext = extname(name);
-        return /^\.ts$/i.test(ext);
+        return /^\.tsx?$/i.test(ext);
     }
     public static isDTS(name: string): boolean {
         return /\.d\.ts$/i.test(name);
     }
     public static isSPEC(name: string): boolean {
-        return /\.spec\.ts$/i.test(name);
+        return /\.spec\.tsx?$/i.test(name);
     }
     public static validTS(name: string): boolean {
         let ext = extname(name);

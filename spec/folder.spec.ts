@@ -17,6 +17,13 @@ function clear(path: string) {
     }
 }
 
+beforeAll((done) => {
+    if (!existsSync(root)) {
+        mkdirSync(root);
+    }
+    done();
+})
+
 beforeEach((done) => {
     readdir(root, (err, files) => {
         files.forEach(file => {
