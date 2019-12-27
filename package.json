@@ -1,6 +1,6 @@
 {
   "name": "ts-indexer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Dev tool used to create typescript index files (index.ts)",
   "main": "lib/index",
   "types": "lib/index",
