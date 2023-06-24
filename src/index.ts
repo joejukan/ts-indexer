@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {version, command, alias, description, action, parse} from "commander";
+import {version, command, parse} from "commander";
 import {readFileSync} from "fs";
 import {resolve} from "path";
 import {init, configurations} from "./globalization";

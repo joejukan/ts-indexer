@@ -94,6 +94,9 @@ export class FolderWatch {
     public static isSPEC(name: string): boolean {
         return /\.spec\.tsx?$/i.test(name);
     }
+    public static isSTORY(name: string): boolean {
+        return /\.stories\.tsx?$/i.test(name)
+    }
     public static validTS(name: string): boolean {
         let ext = extname(name);
         let base = basename(name, ext);
@@ -102,6 +105,9 @@ export class FolderWatch {
             return false;
 
         if(FolderWatch.isDTS(name))
+            return false;
+
+        if(FolderWatch.isSTORY(name))
             return false;
 
         // make sure file is a TS file

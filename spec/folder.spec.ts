@@ -1,4 +1,4 @@
-import { sep, resolve } from "path";
+import { sep } from "path";
 import { unlinkSync, statSync, readdir, readdirSync, mkdirSync, rmdirSync, writeFileSync, existsSync, readFileSync } from "fs";
 import { FolderWatch } from "../src/instruction";
 const root = 'test';
@@ -49,8 +49,8 @@ describe('Flat File Insert', function () {
         writeFileSync(animal, 'export class Animal {};', 'utf-8');
         FolderWatch.scan(root, true);
         setTimeout(() => {
-            expect(existsSync(index)).toBeTruthy('index.ts file is missing!');
-            expect(existsSync(animal)).toBeTruthy('animal.ts file is missing!');
+            expect(existsSync(index)).toBeTruthy();
+            expect(existsSync(animal)).toBeTruthy();
             done();
         }, 500);
     });
@@ -63,12 +63,12 @@ describe('Flat File Insert', function () {
         writeFileSync(dts, 'export class Animal {};', 'utf-8');
         FolderWatch.scan(root, true);
         setTimeout(() => {
-            expect(existsSync(index)).toBeTruthy('index.ts file is missing!');
-            expect(existsSync(spec)).toBeTruthy('animal.spec.ts file is missing!');
-            expect(existsSync(dts)).toBeTruthy('animal.d.ts file is missing!');
+            expect(existsSync(index)).toBeTruthy();
+            expect(existsSync(spec)).toBeTruthy();
+            expect(existsSync(dts)).toBeTruthy();
             let content = readFileSync(index, 'utf-8');
-            expect(/animal\.spec/i.test(content)).toBeFalsy('animal.spec.ts was picked up in the index.ts file!');
-            expect(/animal\.d/i.test(content)).toBeFalsy('animal.d.ts was picked up in the index.ts file!');
+            expect(/animal\.spec/i.test(content)).toBeFalsy();
+            expect(/animal\.d/i.test(content)).toBeFalsy();
             done();
         }, 500);
     });
