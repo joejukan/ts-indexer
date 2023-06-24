@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * added version `1.3.66` of the `@swc/core` module.
 * added version `0.2.26` of the `@swc/jest` module.
 * added version `29.5.2` of the `@types/jest` module.
-* added version `18.6.0` of the `@types/node` module.
+* added version `20.3.1` of the `@types/node` module.
 * added version `29.5.0` of the `jest` module.
 * upgraded the `ts-node` module from version `8.5.4` to version `10.9.1`.
 * upgraded the `typescript` module from version `3.7.4` to version `5.1.3`.
