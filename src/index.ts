@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-import {version, command, parse} from "commander";
+import * as program from "commander";
 import {readFileSync} from "fs";
 import {resolve} from "path";
 import {init, configurations} from "./globalization";
 let pkg = JSON.parse(readFileSync(resolve('package.json'), 'utf-8'));
 
 init();
-version(pkg.version).description(pkg.description);
+
+program.version(pkg.version).description(pkg.description)
 
 configurations.forEach( config => {
-    let cmd = command(config.template)
+    let cmd = program.command(config.template)
     .alias(config.alias)
     .description(config.description)
     .action(config.action);
@@ -20,4 +21,4 @@ configurations.forEach( config => {
     }
 });
 
-parse(process.argv);
+program.parse(process.argv);

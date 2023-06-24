@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.<br/>
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).<br/><br/>
 
+## [0.0.7](https://github.com/joejukan/vue-di-loader/releases/tag/v0.0.7) [FIX] Issue with Commander Version Parsing (2023-06-24)
+* modified import of `commander` module to accommodate exports.module.
+
 ## [0.0.6](https://github.com/joejukan/vue-di-loader/releases/tag/v0.0.6) [FEATURE] Added Logic to Ignore Storybook Files (2023-06-24)
 * added the `isSTORY()` static function to the `FolderWatch` class.
 * modified the `FolderWatch` class `validTS()` static function to ignore storybook files.
